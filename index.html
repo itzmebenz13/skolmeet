@@ -12,6 +12,11 @@
             document.documentElement.classList.remove('dark');
         }
     </script>
+    <style>
+        #mobile-menu-btn.open #hamburger-line-1 { top: 50%; transform: translateY(-50%) rotate(45deg); }
+        #mobile-menu-btn.open #hamburger-line-2 { opacity: 0; transform: scaleX(0) translateY(-50%); }
+        #mobile-menu-btn.open #hamburger-line-3 { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <script>
@@ -218,13 +223,13 @@
         }
     </script>
 
-    <nav class="w-full mx-auto px-6 py-4 flex justify-between items-center relative z-50 border-b border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#121212]/70 backdrop-blur-md transition-colors duration-300">
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 w-full mx-auto px-6 py-4 flex justify-between items-center z-[110] border-b border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#121212]/70 backdrop-blur-md transition-all duration-300">
         <div class="max-w-[1400px] w-full mx-auto flex justify-between items-center gap-4">
             <!-- Left Side: Logo and Links -->
             <div class="flex items-center gap-4 lg:gap-8 flex-shrink-0">
                 <!-- Logo -->
                 <div class="flex items-center">
-                    <img src="https://raw.githubusercontent.com/itzmebenz13/skolmeet/refs/heads/main/images/header-logo.png" alt="SkoolMeet Logo" class="h-10 md:h-12 object-contain" />
+                    <img src="images/header-logo.png" alt="SkoolMeet Logo" class="h-10 md:h-12 object-contain" />
                 </div>
 
                 <!-- Nav Links -->
@@ -272,25 +277,19 @@
                     <a href="signin.html#signup" class="hidden md:block bg-[#10b981] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-[#059669] transition-colors shadow-sm">Join Community</a>
                     
                     <!-- Mobile Menu Button (Hamburger) -->
-                    <button id="mobile-menu-btn" class="md:hidden text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-1.5 rounded-md focus:outline-none" aria-label="Open menu">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    <button id="mobile-menu-btn" class="relative md:hidden text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white focus:outline-none w-8 h-8 flex items-center justify-center z-[120]" aria-label="Toggle menu">
+                        <div class="relative w-5 h-[14px]">
+                            <span class="absolute top-0 left-0 w-full h-0.5 bg-current rounded transition-all duration-300 origin-center" id="hamburger-line-1"></span>
+                            <span class="absolute top-1/2 left-0 w-full h-0.5 bg-current rounded -translate-y-1/2 transition-all duration-300 origin-center" id="hamburger-line-2"></span>
+                            <span class="absolute bottom-0 left-0 w-full h-0.5 bg-current rounded transition-all duration-300 origin-center" id="hamburger-line-3"></span>
+                        </div>
                     </button>
                 </div>
             </div>
         </div>
 
         <!-- Mobile Menu Fullscreen Overlay -->
-        <div id="mobile-menu" class="hidden fixed inset-0 w-full h-[100dvh] bg-[#fcfcfc] dark:bg-[#121212] z-[100] flex-col overflow-y-auto transition-colors duration-300">
-            <!-- Header area -->
-            <div class="px-5 py-4 flex justify-between items-center bg-[#fcfcfc] dark:bg-[#121212]">
-                <div class="flex items-center">
-                    <img src="https://raw.githubusercontent.com/itzmebenz13/skolmeet/refs/heads/main/images/header-logo.png" alt="SkoolMeet Logo" class="h-10 object-contain" />
-                </div>
-                <button id="close-menu-btn" class="w-10 h-10 flex items-center justify-center bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 rounded-2xl text-gray-900 dark:text-white hover:bg-gray-50 dark:hover:bg-white/5 transition-colors shadow-sm">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
-                </button>
-            </div>
-            
+        <div id="mobile-menu" class="hidden fixed inset-0 w-full h-[100dvh] bg-[#fcfcfc] dark:bg-[#121212] z-[100] flex-col overflow-y-auto transition-all duration-300 opacity-0 -translate-y-4 pt-24 pb-6">
             <!-- Search -->
             <div class="px-5 pb-6 pt-2">
                 <div class="flex items-center bg-white dark:bg-[#1f1f1f] border border-gray-200 dark:border-white/10 rounded-[2rem] px-4 py-3 shadow-sm transition-colors">
@@ -346,7 +345,7 @@
         </div>
     </nav>
 
-    <main class="w-full flex-grow flex flex-col relative z-10 mt-8 md:mt-16">
+    <main class="w-full flex-grow flex flex-col relative z-10 pt-[72px] md:pt-[88px] mt-8 md:mt-16">
         
         <!-- Headline -->
         <h1 class="w-full px-4 md:px-6 mx-auto text-[1.6rem] sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-[1.1] md:leading-tight tracking-tight mb-3 md:mb-4 text-gray-900 dark:text-white transition-colors whitespace-nowrap">
@@ -832,21 +831,35 @@
 
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mainNav = document.getElementById('main-nav');
 
         mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        });
-
-            if(closeMenuBtn) {
-                closeMenuBtn.addEventListener('click', () => {
+            const isOpen = mobileMenuBtn.classList.contains('open');
+            if (isOpen) {
+                // Close menu
+                mobileMenuBtn.classList.remove('open');
+                mobileMenu.classList.remove('opacity-100', 'translate-y-0');
+                mobileMenu.classList.add('opacity-0', '-translate-y-4');
+                mainNav.classList.remove('bg-[#fcfcfc]', 'dark:bg-[#121212]', 'backdrop-blur-none');
+                mainNav.classList.add('bg-white/70', 'dark:bg-[#121212]/70', 'backdrop-blur-md');
+                setTimeout(() => {
                     mobileMenu.classList.add('hidden');
                     mobileMenu.classList.remove('flex');
-                    document.body.style.overflow = ''; // Restore background scrolling
-                });
+                }, 300);
+                document.body.style.overflow = '';
+            } else {
+                // Open menu
+                mobileMenuBtn.classList.add('open');
+                mobileMenu.classList.remove('hidden');
+                mobileMenu.classList.add('flex');
+                void mobileMenu.offsetWidth; // Force reflow
+                mobileMenu.classList.remove('opacity-0', '-translate-y-4');
+                mobileMenu.classList.add('opacity-100', 'translate-y-0');
+                mainNav.classList.remove('bg-white/70', 'dark:bg-[#121212]/70', 'backdrop-blur-md');
+                mainNav.classList.add('bg-[#fcfcfc]', 'dark:bg-[#121212]', 'backdrop-blur-none');
+                document.body.style.overflow = 'hidden';
             }
+        });
 
             // Center the Glue card on mobile load
             setTimeout(() => {

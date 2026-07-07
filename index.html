@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkolMeet - Student Community</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        if (localStorage.getItem('theme') === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
     <script>
@@ -35,6 +42,19 @@
         }
     </script>
     <style>
+        /* Abstract blobs for reference-like background depth */
+        .blob-1 { position: absolute; top: -10%; left: -10%; width: 50vw; height: 50vw; border-radius: 50%; background: radial-gradient(circle, rgba(161,140,209,0.8), transparent); filter: blur(80px); z-index: -1; animation: drift 20s infinite alternate; }
+        .blob-2 { position: absolute; bottom: -20%; right: -10%; width: 60vw; height: 60vw; border-radius: 50%; background: radial-gradient(circle, rgba(79,172,254,0.7), transparent); filter: blur(100px); z-index: -1; animation: drift 25s infinite alternate-reverse; }
+        .blob-3 { position: absolute; top: 30%; left: 30%; width: 40vw; height: 40vw; border-radius: 50%; background: radial-gradient(circle, rgba(255,195,160,0.6), transparent); filter: blur(90px); z-index: -1; animation: drift 30s infinite alternate; }
+        
+        @keyframes drift {
+            0% { transform: translate(0, 0) scale(1); }
+            100% { transform: translate(10%, 10%) scale(1.1); }
+        }
+
+        html {
+            font-size: 80%;
+        }
         body {
             font-family: 'Inter', sans-serif;
             overflow-x: hidden;
@@ -167,7 +187,20 @@
         .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
-<body class="relative min-h-screen flex flex-col items-center bg-white dark:bg-[#121212] transition-colors duration-500">
+<body class="relative min-h-screen flex flex-col bg-white dark:bg-[#121212] transition-colors duration-500 overflow-x-hidden">
+
+    <!-- Gradient Background from signin.html, faded -->
+    <div class="fixed inset-0 z-[0] pointer-events-none opacity-50 overflow-hidden" style="
+        background: 
+            radial-gradient(circle at 10% 20%, rgba(255,195,160,0.6) 0%, transparent 50%),
+            radial-gradient(circle at 80% 80%, rgba(161,140,209,0.6) 0%, transparent 50%),
+            radial-gradient(circle at 90% 10%, rgba(79,172,254,0.6) 0%, transparent 50%),
+            radial-gradient(circle at 10% 90%, rgba(255,154,158,0.6) 0%, transparent 50%);
+    ">
+        <div class="blob-1"></div>
+        <div class="blob-2"></div>
+        <div class="blob-3"></div>
+    </div>
 
     <div class="stars" id="stars-container"></div>
 
@@ -185,7 +218,7 @@
         }
     </script>
 
-    <nav class="w-full mx-auto px-6 py-4 flex justify-between items-center relative z-50 border-b border-gray-200 dark:border-white/10 bg-white dark:bg-[#121212] transition-colors duration-300">
+    <nav class="w-full mx-auto px-6 py-4 flex justify-between items-center relative z-50 border-b border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#121212]/70 backdrop-blur-md transition-colors duration-300">
         <div class="max-w-[1400px] w-full mx-auto flex justify-between items-center gap-4">
             <!-- Left Side: Logo and Links -->
             <div class="flex items-center gap-4 lg:gap-8 flex-shrink-0">
@@ -230,8 +263,8 @@
                         <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
                         <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
                     </button>
-                    <a href="#" class="hidden md:block text-sm font-medium text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-300">Sign in</a>
-                    <a href="#" class="hidden md:block bg-[#10b981] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-[#059669] transition-colors shadow-sm">Join Community</a>
+                    <a href="signin.html#signin" class="hidden md:block text-sm font-medium text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-300">Sign in</a>
+                    <a href="signin.html#signup" class="hidden md:block bg-[#10b981] text-white px-5 py-2 rounded-md text-sm font-semibold hover:bg-[#059669] transition-colors shadow-sm">Join Community</a>
                     
                     <!-- Mobile Menu Button (Hamburger) -->
                     <button id="mobile-menu-btn" class="md:hidden text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white p-1.5 rounded-md focus:outline-none" aria-label="Open menu">
@@ -302,42 +335,28 @@
 
             <!-- Auth Buttons -->
             <div class="px-5 py-6 flex flex-col gap-3 mt-auto bg-[#fcfcfc] dark:bg-[#121212]">
-                <button class="w-full py-3.5 bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/20 rounded-xl text-gray-900 dark:text-white font-semibold text-base shadow-sm">Sign in</button>
-                <button class="w-full py-3.5 bg-[#10b981] rounded-xl text-white font-semibold text-base hover:bg-[#059669] transition-colors shadow-sm">Join Community</button>
+                <button onclick="window.location.href='signin.html#signin'" class="w-full py-3.5 bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/20 rounded-xl text-gray-900 dark:text-white font-semibold text-base shadow-sm">Sign in</button>
+                <button onclick="window.location.href='signin.html#signup'" class="w-full py-3.5 bg-[#10b981] rounded-xl text-white font-semibold text-base hover:bg-[#059669] transition-colors shadow-sm">Join Community</button>
             </div>
         </div>
     </nav>
 
-    <main class="w-full flex-grow flex flex-col items-center mt-8 md:mt-16 relative z-10 px-4">
+    <main class="w-full flex-grow flex flex-col relative z-10 mt-8 md:mt-16">
         
         <!-- Headline -->
-        <h1 class="text-[1.6rem] sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-[1.1] md:leading-tight tracking-tight mb-3 md:mb-4 text-gray-900 dark:text-white transition-colors whitespace-nowrap">
+        <h1 class="w-full mx-auto text-[1.6rem] sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-[1.1] md:leading-tight tracking-tight mb-3 md:mb-4 text-gray-900 dark:text-white transition-colors whitespace-nowrap">
             Connect With Students <br>
             <span class="font-serif italic font-normal text-gray-600 dark:text-gray-300 transition-colors">Beyond</span> Your School
         </h1>
 
         <!-- Subheadline -->
-        <p class="text-gray-600 dark:text-textGray text-center max-w-2xl text-sm md:text-lg mb-10 md:mb-16 leading-relaxed transition-colors">
+        <p class="mx-auto text-gray-600 dark:text-textGray text-center max-w-2xl text-sm md:text-lg mb-10 md:mb-16 leading-relaxed transition-colors">
             Join a vibrant student community space where conversations come alive — chat, post, comment, share, and interact with students from other schools.
         </p>
 
-        <!-- Robert Label -->
-        <div class="absolute left-10 md:left-32 top-64 floating-label hidden sm:flex items-center gap-2">
-            <div class="bg-teal-600/80 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium border border-teal-400/30 flex items-center gap-2">
-                Robert
-            </div>
-            <svg class="w-4 h-4 text-teal-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-        </div>
 
-        <!-- Clarissa Label -->
-        <div class="absolute right-10 md:right-32 top-80 floating-label-reverse hidden sm:flex items-center gap-2 flex-row-reverse">
-            <div class="bg-pink-500/80 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-medium border border-pink-400/30 flex items-center gap-2">
-                Clarissa
-            </div>
-             <svg class="w-4 h-4 text-pink-400 transform rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
-        </div>
 
-        <div class="w-full max-w-6xl relative h-auto md:h-[500px] mt-10 cards-container flex justify-start md:justify-center items-end">
+        <div class="w-full max-w-6xl mx-auto relative h-auto md:h-[31.25rem] mt-10 cards-container flex justify-start md:justify-center items-end">
             
             <!-- Card 5 (Far Left - Cloudy) -->
             <div class="avatar-card card-left-2 absolute left-0 bottom-0 w-40 md:w-56 h-64 md:h-80 rounded-[2rem] overflow-hidden shadow-2xl bg-transparent">
@@ -362,8 +381,8 @@
                  <img src="images/model2.png" alt="Dummies" class="absolute inset-0 w-full h-full object-cover">
             </div>
 
-            <!-- Card 1 (Center - Glue) -->
-            <div class="avatar-card card-center absolute bottom-0 w-56 md:w-72 h-80 md:h-[420px] rounded-t-[2rem] rounded-b-none shadow-glow border-t border-l border-r border-white/20 z-40 overflow-hidden bg-transparent">
+            <!-- Card 1 (Center - model1) -->
+            <div class="avatar-card card-center absolute bottom-0 w-56 md:w-72 h-80 md:h-[26.25rem] rounded-[2rem] hover:rounded-b-none shadow-glow border border-white/20 z-40 overflow-hidden bg-transparent transition-all duration-300">
                 <!-- Verified Badge -->
                 <div class="absolute top-2 left-2 md:top-3 md:left-3 z-50 flex items-center gap-1 bg-black/70 px-2 py-1 rounded-full border border-white/10 shadow-sm pointer-events-none">
                     <img src="images/header-logo.png" alt="Logo" class="h-3 w-auto object-contain">
@@ -374,7 +393,7 @@
                 <img src="images/model1.png" alt="Glue" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0">
 
                 <div class="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 w-full flex justify-center">
-                    <button class="group relative px-5 py-2 md:px-6 md:py-2.5 font-bold text-white rounded-full overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] bg-white/10 backdrop-blur-md border border-white/30 flex items-center gap-3">
+                    <button onclick="window.location.href='signin.html#signup'" class="group relative px-5 py-2 md:px-6 md:py-2.5 font-bold text-white rounded-full overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] bg-white/10 backdrop-blur-md border border-white/30 flex items-center gap-3">
                         <span class="relative z-10 tracking-wide text-xs md:text-sm whitespace-nowrap">Get Started</span>
                         <div class="bg-white text-black rounded-full p-1.5 transition-transform duration-300 group-hover:translate-x-1 shadow-md">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
@@ -663,7 +682,7 @@
             </div>
         </div>
 
-        <div class="relative w-full py-16 md:py-32 border-t border-gray-200 dark:border-white/5 bg-white dark:bg-[#121212] transition-colors duration-500">
+        <div class="relative w-full py-16 md:py-32 border-t border-gray-200 dark:border-white/5 bg-white/40 dark:bg-[#121212]/40 backdrop-blur-2xl transition-colors duration-500">
             <div class="max-w-[1100px] mx-auto px-6">
                 
                 <div class="text-left md:text-center mb-10 md:mb-16">
@@ -674,7 +693,7 @@
                 <div class="flex flex-row overflow-x-auto hide-scrollbar snap-x snap-mandatory md:grid md:grid-cols-3 gap-4 md:gap-6 pb-6 -mx-6 px-6 md:mx-0 md:px-0 w-[calc(100%+3rem)] md:w-auto">
                     
                     <!-- Card 1 -->
-                    <div class="w-[85vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center bg-gray-50 dark:bg-[#161616] rounded-[2rem] p-6 md:p-8 border border-gray-200 dark:border-white/5 flex flex-col justify-between min-h-[260px] md:min-h-[380px] transition-all hover:border-[#00c4cc]/30 group shadow-sm dark:shadow-none">
+                    <div class="w-[85vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center bg-gray-50 dark:bg-[#161616] rounded-[2rem] p-6 md:p-8 border border-gray-200 dark:border-white/5 flex flex-col justify-start gap-3 md:gap-4 min-h-[260px] md:min-h-[380px] transition-all hover:border-[#00c4cc]/30 group shadow-sm dark:shadow-none">
                         <h4 class="text-base md:text-xl font-semibold text-gray-900 dark:text-white leading-snug">Meaningful<br>Connections</h4>
                         <p class="text-[11px] md:text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                             Meet students who share your passions and build a network that goes beyond the classroom walls. Start building friendships and study groups today.
@@ -682,7 +701,8 @@
                     </div>
 
                     <!-- Card 2 -->
-                    <div class="w-[85vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center bg-gray-50 dark:bg-[#161616] rounded-[2rem] p-6 md:p-8 border border-gray-200 dark:border-white/5 flex flex-col items-center justify-end min-h-[260px] md:min-h-[380px] relative overflow-hidden transition-all hover:border-[#00c4cc]/30 group shadow-sm dark:shadow-none">
+                    <div class="w-[85vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center bg-gray-50 dark:bg-[#161616] rounded-[2rem] p-6 md:p-8 border border-gray-200 dark:border-white/5 flex flex-col items-start justify-start gap-3 md:gap-4 min-h-[260px] md:min-h-[380px] relative overflow-hidden transition-all hover:border-[#00c4cc]/30 group shadow-sm dark:shadow-none">
+                        <h4 class="text-base md:text-xl font-semibold text-gray-900 dark:text-white leading-snug w-full text-left relative z-20">Collaborative<br>Learning Hub</h4>
                         <!-- Abstract Visual Blob -->
                         <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 md:w-48 md:h-48 flex items-center justify-center">
                             <!-- Outer glow -->
@@ -692,11 +712,10 @@
                             <!-- Highlight ring -->
                             <div class="absolute w-24 h-24 md:w-28 md:h-28 border border-white/60 dark:border-white/20 blob-shape z-10 transform scale-105"></div>
                         </div>
-                        <h4 class="text-base md:text-xl font-semibold text-gray-900 dark:text-white leading-snug w-full text-left relative z-20">Collaborative<br>Learning Hub</h4>
                     </div>
 
                     <!-- Card 3 -->
-                    <div class="w-[85vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center bg-gray-50 dark:bg-[#161616] rounded-[2rem] p-6 md:p-8 border border-gray-200 dark:border-white/5 flex flex-col justify-between min-h-[260px] md:min-h-[380px] transition-all hover:border-[#00c4cc]/30 group shadow-sm dark:shadow-none">
+                    <div class="w-[85vw] sm:w-[320px] md:w-auto flex-shrink-0 snap-center bg-gray-50 dark:bg-[#161616] rounded-[2rem] p-6 md:p-8 border border-gray-200 dark:border-white/5 flex flex-col justify-start gap-3 md:gap-4 min-h-[260px] md:min-h-[380px] transition-all hover:border-[#00c4cc]/30 group shadow-sm dark:shadow-none">
                         <h4 class="text-base md:text-xl font-semibold text-gray-900 dark:text-white leading-snug">Safe Student<br>Environment</h4>
                         <p class="text-[11px] md:text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
                             We ensure our platform remains a safe, respectful place for everyone to share, chat, and interact securely with advanced privacy features.
@@ -709,7 +728,7 @@
 
     </main>
 
-    <footer class="w-full bg-white dark:bg-[#0f0f0f] border-t border-gray-200 dark:border-white/10 pt-12 md:pt-16 pb-8 relative z-10 transition-colors duration-500">
+    <footer class="w-full bg-white/70 dark:bg-[#0f0f0f]/70 backdrop-blur-2xl border-t border-gray-200 dark:border-white/10 pt-12 md:pt-16 pb-8 relative z-10 transition-colors duration-500">
         <div class="max-w-[1400px] mx-auto px-6">
             <!-- 2-column grid on mobile to save vertical space -->
             <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 md:gap-12 mb-12 md:mb-16">
@@ -797,6 +816,13 @@
             
             // Toggle HTML class
             document.documentElement.classList.toggle('dark');
+            
+            // Save to localStorage
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('theme', 'dark');
+            } else {
+                localStorage.setItem('theme', 'light');
+            }
         });
 
         const mobileMenuBtn = document.getElementById('mobile-menu-btn');

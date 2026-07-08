@@ -375,7 +375,7 @@
     </nav>
 
         <!-- Mobile Menu Fullscreen Overlay -->
-        <div id="mobile-menu" class="hidden fixed inset-0 w-full h-[100dvh] pt-[72px] z-[100] flex-col overflow-y-auto transition-opacity duration-300 opacity-0 pb-6 pointer-events-none" style="background-color: #fcfcfc; background-image: radial-gradient(circle at 10% 20%, rgba(255,195,160,0.25) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(161,140,209,0.25) 0%, transparent 50%), radial-gradient(circle at 90% 10%, rgba(79,172,254,0.25) 0%, transparent 50%), radial-gradient(circle at 10% 90%, rgba(255,154,158,0.25) 0%, transparent 50%); background-attachment: fixed;">
+        <div id="mobile-menu" class="hidden fixed inset-0 w-full h-[100dvh] pt-[72px] z-[100] flex-col overflow-y-auto transition-opacity duration-300 opacity-0 pb-6 pointer-events-none bg-[#fcfcfc] dark:bg-[#121212]" style="background-image: radial-gradient(circle at 10% 20%, rgba(255,195,160,0.25) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(161,140,209,0.25) 0%, transparent 50%), radial-gradient(circle at 90% 10%, rgba(79,172,254,0.25) 0%, transparent 50%), radial-gradient(circle at 10% 90%, rgba(255,154,158,0.25) 0%, transparent 50%); background-attachment: fixed;">
             <!-- Search -->
             <div class="px-5 pb-4 pt-3">
                 <div class="flex items-center bg-white dark:bg-[#1a1a1a] border border-gray-100 dark:border-white/10 rounded-full px-4 py-3 transition-colors shadow-sm">
@@ -769,22 +769,8 @@
                 <div class="flex flex-col lg:flex-row gap-10 lg:gap-24 items-center">
                     <!-- Media Side (Left) -->
                     <div class="w-full lg:w-1/2">
-                        <div class="w-full aspect-square md:aspect-[4/5] rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative shadow-xl md:shadow-2xl bg-gray-50 dark:bg-[#161616] border border-gray-200 dark:border-white/5 flex items-center justify-center group">
-                            <!-- Abstract gradient background representing the vibe from the reference -->
-                            <div class="absolute inset-0 bg-gradient-to-br from-[#00c4cc]/20 to-[#8e44ad]/10 dark:from-[#00c4cc]/10 dark:to-[#8e44ad]/5 opacity-50 group-hover:opacity-100 transition-opacity duration-700"></div>
-                            
-                            <!-- Floating abstract element -->
-                            <div class="w-48 h-64 md:w-56 md:h-72 bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-white/40 dark:border-white/10 rounded-[1.5rem] md:rounded-3xl z-20 transform transition-transform duration-700 group-hover:scale-105 group-hover:rotate-2 shadow-[0_20px_40px_rgba(0,196,204,0.15)] flex flex-col items-center justify-center p-6">
-                                <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-tr from-[#00c4cc] to-[#50e3c2] shadow-lg mb-4 md:mb-6 relative">
-                                    <div class="absolute top-1/4 right-1/4 w-2 h-2 md:w-3 md:h-3 bg-white rounded-full opacity-80"></div>
-                                </div>
-                                <div class="w-3/4 h-2 md:h-3 bg-gray-200 dark:bg-white/10 rounded-full mb-2 md:mb-3"></div>
-                                <div class="w-1/2 h-2 md:h-3 bg-gray-200 dark:bg-white/10 rounded-full"></div>
-                            </div>
-                            
-                            <!-- Decor elements -->
-                            <div class="absolute top-10 right-10 w-16 h-16 md:w-24 md:h-24 bg-[#00c4cc]/20 blur-2xl rounded-full"></div>
-                            <div class="absolute bottom-10 left-10 w-24 h-24 md:w-32 md:h-32 bg-pink-500/10 blur-3xl rounded-full"></div>
+                        <div class="w-full rounded-[2rem] md:rounded-[2.5rem] overflow-hidden relative shadow-xl md:shadow-2xl border border-gray-200 dark:border-white/5 group bg-gray-50 dark:bg-[#161616]">
+                            <img src="images/mockup.png" alt="SkolMeet App Mockup" class="w-full h-auto block object-contain transition-transform duration-700 group-hover:scale-105">
                         </div>
                     </div>
                     

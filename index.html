@@ -598,43 +598,82 @@
 
             <div class="max-w-[1200px] mx-auto px-6 relative z-10">
                 
-                <!-- Section 1: Header -->
-                <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6 md:gap-8 mb-12 md:mb-16">
-                    <h2 class="text-[1.4rem] sm:text-3xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight whitespace-nowrap">
-                        Your <span class="text-[#00c4cc]">ultimate</span> hub for <br>
-                        <span class="text-gray-500 dark:text-gray-500">student connection.</span>
-                    </h2>
-                    <p class="text-gray-600 dark:text-gray-400 max-w-sm text-xs md:text-sm leading-relaxed pb-2">
-                        SkolMeet unites a growing network of students. Share your thoughts, find study buddies, and expand your social circle across different schools and universities.
-                    </p>
+                <!-- Hero Top: Text Left, Image Right -->
+                <div class="w-full flex flex-col lg:flex-row items-center justify-between mt-8 lg:mt-12 mb-12 lg:mb-20">
+                    
+                    <!-- Left: Text -->
+                    <div class="w-full lg:w-[45%] flex flex-col text-left z-10 relative">
+                        <h1 class="text-[2.5rem] sm:text-[3rem] lg:text-[4.5rem] font-black text-[#1a1a24] dark:text-white leading-[1.1] mb-6 tracking-tight">
+                            Your <span class="text-[#00c4cc]">ultimate</span> hub for <br>
+                            <span class="text-[#ff2b70]">student connection.</span>
+                        </h1>
+                        <p class="text-[#59596b] dark:text-gray-400 text-sm sm:text-base lg:text-lg max-w-md leading-relaxed font-medium">
+                            SkolMeet unites a growing network of students.<br>
+                            Share your thoughts, find study buddies, and expand<br>
+                            your social circle across different schools and universities.
+                        </p>
+                    </div>
+
+                    <!-- Right: Students Image -->
+                    <div class="w-full lg:w-[55%] flex justify-center lg:justify-end mt-12 lg:mt-0 relative z-0">
+                        <img src="images/students.png" alt="Students" class="w-full max-w-[500px] lg:max-w-[700px] h-auto object-contain">
+                    </div>
                 </div>
 
-                <!-- Section 2: Numbered Cards (Horizontal Scroll on Mobile) -->
-                <div class="relative bg-transparent md:bg-white md:dark:bg-[#111111] md:border md:border-gray-200 md:dark:border-white/5 rounded-[2rem] p-0 md:p-6 lg:p-8 flex overflow-x-auto hide-scrollbar snap-x snap-mandatory flex-row items-stretch justify-start md:justify-between gap-4 md:shadow-sm mb-20 md:mb-32 -mx-6 px-6 md:mx-0 md:px-0 w-[calc(100%+3rem)] md:w-full pb-8 md:pb-0">
-                    
-                    <!-- Card 01 -->
-                    <div class="w-[80vw] sm:w-[300px] md:w-auto md:flex-1 flex-shrink-0 snap-center p-6 md:p-8 flex flex-col justify-start min-h-[180px] md:min-h-[240px] bg-white dark:bg-[#111111] border border-gray-200 dark:border-white/5 md:border-none rounded-[1.5rem] md:rounded-none">
-                        <span class="text-[#00c4cc] font-bold text-xl md:text-2xl mb-2 md:mb-4 block">01.</span>
-                        <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white leading-snug">Chat & Connect<br>With Anyone.</h3>
-                    </div>
-                    
-                    <!-- Card 02 (Elevated, Teal) -->
-                    <div class="w-[80vw] sm:w-[300px] md:w-auto md:flex-1 flex-shrink-0 snap-center bg-gradient-to-b from-[#00c4cc] to-[#009399] rounded-[1.5rem] p-6 md:p-8 flex flex-col justify-between min-h-[240px] md:min-h-[280px] transform md:-translate-y-8 shadow-[0_15px_30px_rgba(0,196,204,0.25)] relative z-10 text-white">
-                        <span class="font-bold text-xl md:text-2xl mb-2 md:mb-4 block text-white/90">02.</span>
-                        <div>
-                            <h3 class="text-lg md:text-xl lg:text-2xl font-bold mb-2 md:mb-4 leading-snug text-white">Post & Share<br>Your Moments.</h3>
-                            <p class="text-white/80 text-xs md:text-sm mb-4 md:mb-6 leading-relaxed">SkolMeet provides a safe space to share your experiences, comment on others, and build lasting friendships.</p>
+                <!-- Hero Bottom: 3 Features Card -->
+                <div class="w-full bg-white dark:bg-[#1e1e1e] rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] p-8 lg:p-12 border border-gray-100 dark:border-white/5 relative z-20">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8 relative">
+                        
+                        <!-- Feature 1 -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                            <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-[#ffcd38] to-[#ff2b70] shadow-xl shadow-[#ff2b70]/20 flex items-center justify-center p-5 relative">
+                                <div class="absolute inset-0 bg-white/20 rounded-full blur-sm"></div>
+                                <svg class="w-full h-full text-white relative z-10 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.03 2 11c0 2.82 1.5 5.35 3.84 7.04.14.73-.24 2.23-.29 2.42a.5.5 0 00.65.61c.21-.08 2.05-.79 3.55-1.12A10.82 10.82 0 0012 20c5.523 0 10-4.03 10-9s-4.477-9-10-9zm-4 10a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm4 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm4 0a1.5 1.5 0 110-3 1.5 1.5 0 010 3z"/></svg>
+                            </div>
+                            <div class="flex flex-col text-left">
+                                <span class="text-[#00c4cc] font-extrabold text-lg lg:text-xl mb-1 block tracking-tight">01.</span>
+                                <h3 class="text-lg lg:text-xl font-bold text-gray-900 dark:text-white leading-tight mb-2">Chat & Connect<br>With Anyone</h3>
+                                <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 font-medium leading-relaxed pr-2">Start real conversations, make new friends, and connect with students from any school.</p>
+                            </div>
                         </div>
-                        <a href="#" class="font-bold flex items-center gap-2 hover:gap-3 transition-all text-xs md:text-sm group text-white">
-                            Learn More 
-                            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                        </a>
-                    </div>
 
-                    <!-- Card 03 -->
-                    <div class="w-[80vw] sm:w-[300px] md:w-auto md:flex-1 flex-shrink-0 snap-center p-6 md:p-8 flex flex-col justify-start min-h-[180px] md:min-h-[240px] bg-white dark:bg-[#111111] border border-gray-200 dark:border-white/5 md:border-none rounded-[1.5rem] md:rounded-none">
-                        <span class="text-[#00c4cc] font-bold text-xl md:text-2xl mb-2 md:mb-4 block">03.</span>
-                        <h3 class="text-lg md:text-xl lg:text-2xl font-bold text-gray-900 dark:text-white leading-snug">Safe & Secure<br>Community.</h3>
+                        <!-- Feature 2 (Highlighted) -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5 relative z-10 p-2">
+                            <!-- Thin border background highlight -->
+                            <div class="absolute inset-0 border-[1.5px] border-[#ff2b70]/20 rounded-3xl lg:rounded-[2rem] shadow-sm pointer-events-none -m-2 hidden lg:block bg-white dark:bg-transparent"></div>
+                            
+                            <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-[#ffd000] to-[#ff2b70] shadow-xl shadow-[#ff2b70]/20 flex items-center justify-center p-5 relative z-20">
+                                <div class="absolute inset-0 bg-white/20 rounded-full blur-sm"></div>
+                                <svg class="w-full h-full text-white relative z-10 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path d="M4 4a2 2 0 012-2h8l6 6v12a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 0v16h12V9h-5V4H6zm3 4h6v2H9V8zm0 4h6v2H9v-2zm0 4h4v2H9v-2z"/></svg>
+                                <!-- Little paper plane badge -->
+                                <div class="absolute -bottom-1 -right-1 bg-[#00c4cc] w-8 h-8 rounded-full flex items-center justify-center border-2 border-white shadow-md">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z"/></svg>
+                                </div>
+                            </div>
+                            <div class="flex flex-col text-left relative z-20">
+                                <span class="text-[#00c4cc] font-extrabold text-lg lg:text-xl mb-1 block tracking-tight">02.</span>
+                                <h3 class="text-lg lg:text-xl font-bold text-gray-900 dark:text-white leading-tight mb-2">Post & Share<br>Your Moments</h3>
+                                <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 font-medium leading-relaxed pr-2">Share your ideas, achievements, and daily moments. Express yourself and inspire others.</p>
+                            </div>
+                        </div>
+
+                        <!-- Feature 3 -->
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center gap-5">
+                            <div class="flex-shrink-0 w-20 h-20 lg:w-24 lg:h-24 rounded-full bg-gradient-to-br from-[#ffd000] to-[#ff8a00] shadow-xl shadow-[#ff8a00]/20 flex items-center justify-center p-5 relative">
+                                <div class="absolute inset-0 bg-white/20 rounded-full blur-sm"></div>
+                                <svg class="w-full h-full text-white relative z-10 drop-shadow-md" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M11.986 3L4 6.133V11c0 5.163 3.42 9.94 8.016 11C16.63 20.893 20 16.143 20 11V6.133L11.986 3zM10.5 15.5l-3.5-3.5 1.414-1.414L10.5 12.672l5.086-5.086L17 9l-6.5 6.5z" clip-rule="evenodd"/></svg>
+                                <!-- Lock badge -->
+                                <div class="absolute -bottom-1 -right-1 bg-[#00c4cc] w-8 h-8 rounded-full flex items-center justify-center border-2 border-white shadow-md">
+                                    <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/></svg>
+                                </div>
+                            </div>
+                            <div class="flex flex-col text-left">
+                                <span class="text-[#00c4cc] font-extrabold text-lg lg:text-xl mb-1 block tracking-tight">03.</span>
+                                <h3 class="text-lg lg:text-xl font-bold text-gray-900 dark:text-white leading-tight mb-2">Safe & Secure<br>Community</h3>
+                                <p class="text-xs lg:text-sm text-gray-500 dark:text-gray-400 font-medium leading-relaxed pr-2">Your safety is our priority. Enjoy a respectful, inclusive, and secure environment for everyone.</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 

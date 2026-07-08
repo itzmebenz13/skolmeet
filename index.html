@@ -256,7 +256,7 @@
         }
     </script>
 
-    <nav id="main-nav" class="fixed top-0 left-0 right-0 w-full mx-auto px-6 py-4 flex justify-between items-center z-[110] border-b border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#121212]/70 backdrop-blur-md transition-all duration-300">
+    <nav id="main-nav" class="fixed top-0 left-0 right-0 w-full mx-auto px-4 py-4 flex justify-between items-center z-[110] border-b border-gray-200 dark:border-white/10 bg-white/70 dark:bg-[#121212]/70 backdrop-blur-md transition-all duration-300">
         <!-- Connected Background Gradient -->
         <div class="absolute inset-0 z-[-1] pointer-events-none opacity-30" style="
             background: 
@@ -270,8 +270,10 @@
             <!-- Left Side: Logo and Links -->
             <div class="flex items-center gap-4 lg:gap-8 flex-shrink-0">
                 <!-- Logo -->
-                <div class="flex items-center relative z-20">
-                    <img src="images/header-logo.png" alt="SkoolMeet Logo" class="h-10 md:h-12 object-contain relative z-20" />
+                <div class="flex items-center relative z-20 h-10 md:h-12 w-32 md:w-40 lg:w-[220px]">
+                    <a href="#" class="absolute top-1/2 -translate-y-1/2 left-2 md:left-4 z-20 group outline-none">
+                        <img src="images/header-logo.png" alt="SkoolMeet Logo" class="h-14 md:h-16 lg:h-[72px] w-auto object-contain max-w-none transition-all duration-300 transform group-hover:scale-105 group-hover:-translate-y-1 group-hover:rotate-[-2deg] drop-shadow-sm group-hover:drop-shadow-md" />
+                    </a>
                 </div>
 
                 <!-- Nav Links -->
@@ -281,16 +283,52 @@
                         Discover
                     </a>
                     <div class="relative group">
-                        <button class="text-sm font-medium text-gray-600 dark:text-gray-300 flex items-center gap-1 hover:text-gray-900 dark:hover:text-white transition-colors">
+                        <button class="text-sm font-medium text-gray-600 dark:text-gray-300 flex items-center gap-1 hover:text-gray-900 dark:hover:text-white transition-colors py-2">
                             Study Groups
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
+                        <!-- Dropdown Menu -->
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 bg-white/95 dark:bg-[#1f1f1f]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 p-3 z-50">
+                            <div class="grid grid-cols-2 gap-2">
+                                <a href="#" class="flex flex-col gap-1 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group/item">
+                                    <span class="text-[10px] uppercase font-bold tracking-wider text-gray-500 dark:text-gray-400 group-hover/item:text-[#10b981] transition-colors">STEM</span>
+                                    <span class="text-sm font-semibold text-gray-900 dark:text-white">Math & Science</span>
+                                </a>
+                                <a href="#" class="flex flex-col gap-1 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group/item">
+                                    <span class="text-[10px] uppercase font-bold tracking-wider text-gray-500 dark:text-gray-400 group-hover/item:text-[#10b981] transition-colors">Arts</span>
+                                    <span class="text-sm font-semibold text-gray-900 dark:text-white">Literature</span>
+                                </a>
+                                <a href="#" class="flex flex-col gap-1 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group/item">
+                                    <span class="text-[10px] uppercase font-bold tracking-wider text-gray-500 dark:text-gray-400 group-hover/item:text-[#10b981] transition-colors">Tech</span>
+                                    <span class="text-sm font-semibold text-gray-900 dark:text-white">Coding Space</span>
+                                </a>
+                                <a href="#" class="flex flex-col gap-1 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group/item">
+                                    <span class="text-[10px] uppercase font-bold tracking-wider text-gray-500 dark:text-gray-400 group-hover/item:text-[#10b981] transition-colors">Global</span>
+                                    <span class="text-sm font-semibold text-gray-900 dark:text-white">Languages</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                     <div class="relative group">
-                        <button class="text-sm font-medium text-gray-600 dark:text-gray-300 flex items-center gap-1 hover:text-gray-900 dark:hover:text-white transition-colors">
+                        <button class="text-sm font-medium text-gray-600 dark:text-gray-300 flex items-center gap-1 hover:text-gray-900 dark:hover:text-white transition-colors py-2">
                             Community
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                            <svg class="w-4 h-4 transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
                         </button>
+                        <!-- Dropdown Menu -->
+                        <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-56 bg-white/95 dark:bg-[#1f1f1f]/95 backdrop-blur-xl border border-gray-200 dark:border-white/10 rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform origin-top translate-y-2 group-hover:translate-y-0 p-2 z-50 flex flex-col gap-1">
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover/item:scale-110 transition-transform flex-shrink-0">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                                </div>
+                                <span class="text-sm font-semibold text-gray-900 dark:text-white">Forums</span>
+                            </a>
+                            <a href="#" class="flex items-center gap-3 p-3 rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 transition-colors group/item">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover/item:scale-110 transition-transform flex-shrink-0">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <span class="text-sm font-semibold text-gray-900 dark:text-white">Events</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -359,27 +397,63 @@
                     <svg class="w-5 h-5 text-[#10b981]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7m0 0H8m9 0v9"></path></svg>
                 </a>
 
-                <!-- Study Groups -->
-                <a href="#" class="flex justify-between items-center py-5 border-b border-gray-200/60 dark:border-white/5 group hover:bg-gray-50 dark:hover:bg-white/5 -mx-5 px-5 transition-colors">
-                    <div class="flex items-center gap-4">
+                <!-- Study Groups Category -->
+                <div class="py-5 border-b border-gray-200/60 dark:border-white/5 -mx-5 px-5">
+                    <div class="flex items-center gap-4 mb-4">
                         <div class="text-[#10b981]">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path></svg>
                         </div>
                         <span class="font-bold text-gray-900 dark:text-white text-[1.1rem]">Study Groups</span>
                     </div>
-                    <svg class="w-5 h-5 text-[#10b981]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7m0 0H8m9 0v9"></path></svg>
-                </a>
+                    <div class="grid grid-cols-2 gap-3 pl-10">
+                        <a href="#" class="flex flex-col gap-1 p-3 rounded-xl bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 hover:border-[#10b981] dark:hover:border-[#10b981] hover:shadow-md transition-all group">
+                            <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 group-hover:text-[#10b981] transition-colors">STEM</span>
+                            <span class="text-sm font-bold text-gray-900 dark:text-white">Math & Science</span>
+                        </a>
+                        <a href="#" class="flex flex-col gap-1 p-3 rounded-xl bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 hover:border-[#10b981] dark:hover:border-[#10b981] hover:shadow-md transition-all group">
+                            <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 group-hover:text-[#10b981] transition-colors">Arts</span>
+                            <span class="text-sm font-bold text-gray-900 dark:text-white">Literature</span>
+                        </a>
+                        <a href="#" class="flex flex-col gap-1 p-3 rounded-xl bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 hover:border-[#10b981] dark:hover:border-[#10b981] hover:shadow-md transition-all group">
+                            <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 group-hover:text-[#10b981] transition-colors">Tech</span>
+                            <span class="text-sm font-bold text-gray-900 dark:text-white">Coding Space</span>
+                        </a>
+                        <a href="#" class="flex flex-col gap-1 p-3 rounded-xl bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 hover:border-[#10b981] dark:hover:border-[#10b981] hover:shadow-md transition-all group">
+                            <span class="text-xs font-semibold text-gray-500 dark:text-gray-400 group-hover:text-[#10b981] transition-colors">Global</span>
+                            <span class="text-sm font-bold text-gray-900 dark:text-white">Languages</span>
+                        </a>
+                    </div>
+                </div>
 
-                <!-- Community -->
-                <a href="#" class="flex justify-between items-center py-5 border-b border-gray-200/60 dark:border-white/5 group hover:bg-gray-50 dark:hover:bg-white/5 -mx-5 px-5 transition-colors">
-                    <div class="flex items-center gap-4">
+                <!-- Community Category -->
+                <div class="py-5 border-b border-gray-200/60 dark:border-white/5 -mx-5 px-5">
+                    <div class="flex items-center gap-4 mb-4">
                         <div class="text-[#10b981]">
                             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                         </div>
                         <span class="font-bold text-gray-900 dark:text-white text-[1.1rem]">Community</span>
                     </div>
-                    <svg class="w-5 h-5 text-[#10b981]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M7 17L17 7m0 0H8m9 0v9"></path></svg>
-                </a>
+                    <div class="grid grid-cols-1 gap-2 pl-10">
+                        <a href="#" class="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 hover:border-[#10b981] dark:hover:border-[#10b981] hover:shadow-md transition-all group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 group-hover:scale-110 transition-transform">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+                                </div>
+                                <span class="text-sm font-bold text-gray-900 dark:text-white">Forums & Discussions</span>
+                            </div>
+                            <svg class="w-4 h-4 text-gray-400 group-hover:text-[#10b981] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                        <a href="#" class="flex items-center justify-between p-3 rounded-xl bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/10 hover:border-[#10b981] dark:hover:border-[#10b981] hover:shadow-md transition-all group">
+                            <div class="flex items-center gap-3">
+                                <div class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+                                </div>
+                                <span class="text-sm font-bold text-gray-900 dark:text-white">Upcoming Events</span>
+                            </div>
+                            <svg class="w-4 h-4 text-gray-400 group-hover:text-[#10b981] group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <!-- Spacer to push buttons to bottom -->

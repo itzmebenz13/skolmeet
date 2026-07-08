@@ -275,8 +275,13 @@
             <!-- Right Side: Actions -->
             <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                     <!-- SKOLChat Button -->
-                    <button class="relative z-20 transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 focus:outline-none">
-                        <img src="images/skolchat.png" alt="SKOLChat" class="h-10 sm:h-12 w-auto object-contain drop-shadow-sm">
+                    <button class="relative z-20 transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 focus:outline-none rounded-lg group">
+                        <!-- Gradient Border Mask -->
+                        <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-[#ffd000] via-[#ff6b00] to-[#ff2b70] pointer-events-none" style="-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px;"></div>
+                        <!-- Inner Content -->
+                        <div class="relative bg-transparent px-2.5 py-0.5 flex items-center justify-center h-full w-full transition-colors hover:bg-white/10 dark:hover:bg-white/5 rounded-lg">
+                            <img src="images/skolchat.png" alt="SKOLChat" class="h-8 sm:h-9 w-auto object-contain drop-shadow-sm">
+                        </div>
                     </button>
                     
                     <!-- Theme Toggle -->

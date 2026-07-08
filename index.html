@@ -18,6 +18,28 @@
         #mobile-menu-btn.open #hamburger-line-3 { bottom: 50%; transform: translateY(50%) rotate(-45deg); }
         body.menu-open #main-nav { backdrop-filter: none !important; -webkit-backdrop-filter: none !important; background-color: #fcfcfc !important; }
         html.dark body.menu-open #main-nav { background-color: #121212 !important; }
+        @keyframes shimmer {
+            0%   { background-position: -200% 0; }
+            100% { background-position: 200% 0; }
+        }
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.55) 50%, transparent 60%);
+            background-size: 200% 100%;
+            animation: shimmer 4.5s linear infinite;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+        @keyframes gradient-spin {
+            0%   { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
@@ -275,11 +297,11 @@
             <!-- Right Side: Actions -->
             <div class="flex items-center gap-2 sm:gap-4 flex-shrink-0">
                     <!-- SKOLChat Button -->
-                    <button class="relative z-20 transition-all duration-300 transform hover:-translate-y-0.5 hover:scale-105 focus:outline-none rounded-lg group">
+                    <button class="relative z-20 focus:outline-none rounded-lg [-webkit-tap-highlight-color:transparent]">
                         <!-- Gradient Border Mask -->
-                        <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-[#ffd000] via-[#ff6b00] to-[#ff2b70] pointer-events-none" style="-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px;"></div>
+                        <div class="absolute inset-0 rounded-lg bg-gradient-to-r from-[#ffd000] via-[#ff6b00] to-[#ff2b70] pointer-events-none" style="-webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; padding: 1px; animation: gradient-spin 4s linear infinite;"></div>
                         <!-- Inner Content -->
-                        <div class="relative bg-transparent px-2.5 py-0.5 flex items-center justify-center h-full w-full transition-colors hover:bg-white/10 dark:hover:bg-white/5 rounded-lg">
+                        <div class="relative bg-transparent px-2.5 py-0.5 flex items-center justify-center h-full w-full rounded-lg">
                             <img src="images/skolchat.png" alt="SKOLChat" class="h-8 sm:h-9 w-auto object-contain drop-shadow-sm">
                         </div>
                     </button>
@@ -306,7 +328,7 @@
     </nav>
 
         <!-- Mobile Menu Fullscreen Overlay -->
-        <div id="mobile-menu" class="hidden fixed inset-0 w-full h-[100dvh] pt-[72px] bg-[#fcfcfc] dark:bg-[#121212] z-[100] flex-col overflow-y-auto transition-opacity duration-300 opacity-0 pb-6 pointer-events-none">
+        <div id="mobile-menu" class="hidden fixed inset-0 w-full h-[100dvh] pt-[72px] z-[100] flex-col overflow-y-auto transition-opacity duration-300 opacity-0 pb-6 pointer-events-none" style="background-color: #fcfcfc; background-image: radial-gradient(circle at 10% 20%, rgba(255,195,160,0.25) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(161,140,209,0.25) 0%, transparent 50%), radial-gradient(circle at 90% 10%, rgba(79,172,254,0.25) 0%, transparent 50%), radial-gradient(circle at 10% 90%, rgba(255,154,158,0.25) 0%, transparent 50%); background-attachment: fixed;">
             <!-- Search -->
             <div class="px-5 pb-6 pt-2">
                 <div class="flex items-center bg-white dark:bg-[#1f1f1f] border border-gray-200 dark:border-white/10 rounded-[2rem] px-4 py-3 shadow-sm transition-colors">
@@ -355,7 +377,7 @@
             <div class="flex-grow"></div>
 
             <!-- Auth Buttons -->
-            <div class="px-5 py-6 flex flex-col gap-3 mt-auto bg-[#fcfcfc] dark:bg-[#121212]">
+            <div class="px-5 py-6 flex flex-col gap-3 mt-auto">
                 <button onclick="window.location.href='signin.html#signin'" class="w-full py-3.5 bg-white dark:bg-[#1a1a1a] border border-gray-200 dark:border-white/20 rounded-xl text-gray-900 dark:text-white font-semibold text-base shadow-sm">Sign in</button>
                 <button onclick="window.location.href='signin.html#signup'" class="w-full py-3.5 bg-[#10b981] rounded-xl text-white font-semibold text-base hover:bg-[#059669] transition-colors shadow-sm">Join Community</button>
             </div>
@@ -413,12 +435,11 @@
                 <img src="images/model1.png" alt="Glue" class="absolute inset-0 w-full h-full object-cover pointer-events-none z-0">
 
                 <div class="absolute bottom-6 md:bottom-8 left-1/2 -translate-x-1/2 z-20 w-full flex justify-center">
-                    <button onclick="window.location.href='signin.html#signup'" class="group relative px-5 py-2 md:px-6 md:py-2.5 font-bold text-white rounded-full overflow-hidden shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] bg-white/10 backdrop-blur-md border border-white/30 flex items-center gap-3">
+                    <button onclick="window.location.href='signin.html#signup'" class="btn-shimmer group relative px-5 py-2 md:px-6 md:py-2.5 font-bold text-white rounded-full shadow-[0_0_20px_rgba(255,255,255,0.2)] transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] bg-white/10 backdrop-blur-md border border-white/30 flex items-center gap-3">
                         <span class="relative z-10 tracking-wide text-xs md:text-sm whitespace-nowrap">Get Started</span>
                         <div class="bg-white text-black rounded-full p-1.5 transition-transform duration-300 group-hover:translate-x-1 shadow-md">
                             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                         </div>
-                        <div class="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"></div>
                     </button>
                 </div>
             </div>

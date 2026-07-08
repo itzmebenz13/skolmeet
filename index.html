@@ -40,6 +40,15 @@
             0%   { filter: hue-rotate(0deg); }
             100% { filter: hue-rotate(360deg); }
         }
+        @keyframes draw-line {
+            0%   { stroke-dashoffset: 1; }
+            100% { stroke-dashoffset: 0; }
+        }
+        .hand-underline path {
+            stroke-dasharray: 1;
+            stroke-dashoffset: 1;
+            animation: draw-line 1.4s cubic-bezier(0.4, 0, 0.2, 1) 0.3s forwards;
+        }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
@@ -386,10 +395,31 @@
     <main class="w-full flex-grow flex flex-col relative z-10 pt-[72px] md:pt-[88px] mt-8 md:mt-16">
         
         <!-- Headline -->
-        <h1 class="w-full px-4 md:px-6 mx-auto text-[1.6rem] sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-[1.1] md:leading-tight tracking-tight mb-3 md:mb-4 text-gray-900 dark:text-white transition-colors whitespace-nowrap">
+        <h1 class="w-full px-4 md:px-6 mx-auto text-[1.6rem] sm:text-4xl md:text-6xl lg:text-7xl font-bold text-center leading-[1.1] md:leading-tight tracking-tight mb-1 md:mb-2 text-gray-900 dark:text-white transition-colors whitespace-nowrap">
             Connect With Students <br>
             <span class="font-serif italic font-normal text-gray-600 dark:text-gray-300 transition-colors">Beyond</span> Your School
         </h1>
+        <!-- Hand-drawn underline -->
+        <div class="flex justify-center mb-3 md:mb-4 -mt-1">
+            <svg class="hand-underline w-[55%] max-w-[520px]" viewBox="0 0 520 26" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <!-- First Line -->
+                <path d="M4 11 C 60 5, 130 15, 200 9 S 330 3, 400 11 S 470 16, 516 8" stroke="url(#underline-grad-1)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1"/>
+                <!-- Second Line -->
+                <path d="M10 15 C 65 10, 135 20, 205 13 S 335 8, 405 16 S 475 20, 512 12" stroke="url(#underline-grad-2)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" style="animation-delay: 0.6s; opacity: 0.8;"/>
+                <defs>
+                    <linearGradient id="underline-grad-1" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#a1c4fd"/>
+                        <stop offset="50%" stop-color="#c2e9fb"/>
+                        <stop offset="100%" stop-color="#d4a5f5"/>
+                    </linearGradient>
+                    <linearGradient id="underline-grad-2" x1="0" y1="0" x2="1" y2="0">
+                        <stop offset="0%" stop-color="#ff9a9e"/>
+                        <stop offset="50%" stop-color="#fecfef"/>
+                        <stop offset="100%" stop-color="#ff9a9e"/>
+                    </linearGradient>
+                </defs>
+            </svg>
+        </div>
 
         <!-- Subheadline -->
         <p class="mx-auto px-4 md:px-6 text-gray-600 dark:text-textGray text-center max-w-2xl text-sm md:text-lg mb-10 md:mb-16 leading-relaxed transition-colors">
